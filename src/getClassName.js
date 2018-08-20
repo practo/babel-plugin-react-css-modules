@@ -97,10 +97,11 @@ export default (styleNameValue: string, styleModuleImportMap: StyleModuleImportM
       if (!styleModuleMap[styleName]) {
         if (handleMissingStyleName === 'throw') {
           throw new Error('Could not resolve the styleName \'' + styleName + '\'.');
-        }
-        if (handleMissingStyleName === 'warn') {
+        } else if (handleMissingStyleName === 'warn') {
           // eslint-disable-next-line no-console
           console.warn('Could not resolve the styleName \'' + styleName + '\'.');
+        } else if (handleMissingStyleName === 'retain') {
+          return styleName;
         }
       }
 

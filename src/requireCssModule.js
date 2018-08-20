@@ -28,6 +28,9 @@ type FiletypesConfigurationType = {
   [key: string]: FiletypeOptionsType
 };
 
+// Cache all tokens generated for each file
+const fileTokensCache = {};
+
 const getFiletypeOptions = (cssSourceFilePath: string, filetypes: FiletypesConfigurationType): ?FiletypeOptionsType => {
   const extension = cssSourceFilePath.substr(cssSourceFilePath.lastIndexOf('.'));
   const filetype = filetypes ? filetypes[extension] : null;
@@ -94,6 +97,9 @@ type OptionsType = {|
 |};
 
 export default (cssSourceFilePath: string, options: OptionsType): StyleModuleMapType => {
+  if (fileTokensCache[cssSourceFilePath]) {
+    return fileTokensCache[cssSourceFilePath];
+  }
   // eslint-disable-next-line prefer-const
   let runner;
 
@@ -132,6 +138,7 @@ export default (cssSourceFilePath: string, options: OptionsType): StyleModuleMap
   ];
 
   runner = postcss(plugins);
+  fileTokensCache[cssSourceFilePath] = getTokens(runner, cssSourceFilePath, filetypeOptions);
 
-  return getTokens(runner, cssSourceFilePath, filetypeOptions);
+  return fileTokensCache[cssSourceFilePath];
 };
