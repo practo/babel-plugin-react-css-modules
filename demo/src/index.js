@@ -3,11 +3,11 @@ import ReactDom from 'react-dom';
 import AnonymouseStyleResolution from './components/AnonymouseStyleResolution';
 import NamedStyleResolution from './components/NamedStyleResolution';
 import RuntimeStyleResolution from './components/RuntimeStyleResolution';
-import ClassnameCallExpressionResolution from './components/ClassnameCallExpressionResolution';
+import JSXExpressionStyleResolution from './components/JSXExpressionStyleResolution';
 
 ReactDom.render(<div>
   <AnonymouseStyleResolution />
   <NamedStyleResolution />
-  <ClassnameCallExpressionResolution />
+  <JSXExpressionStyleResolution />
   <RuntimeStyleResolution />
 </div>, document.getElementById('main'));
