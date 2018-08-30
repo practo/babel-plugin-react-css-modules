@@ -52,7 +52,7 @@
       "type": "boolean"
     },
     "handleMissingStyleName": {
-      "enum": ["throw", "warn", "ignore"]
+      "enum": ["throw", "warn", "ignore", "retain"]
     },
     "attributeNames": {
       "additionalProperties": false,
@@ -69,6 +69,9 @@
         }
       },
       "type": "object"
+    },
+    "defaultCssFile": {
+      "type": "string"
     }
   },
   "type": "object"

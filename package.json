@@ -18,7 +18,7 @@
     "postcss-modules-scope": "^1.1.0",
     "postcss-modules-values": "^1.3.0"
   },
-  "description": "Transforms styleName to className using compile time CSS module resolution.",
+  "description": "Uglifies CSS at compile time",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-helper-plugin-test-runner": "^6.24.1",
@@ -46,17 +46,18 @@
   ],
   "license": "BSD-3-Clause",
   "main": "dist/index.js",
-  "name": "babel-plugin-react-css-modules",
+  "name": "babel-plugin-react-css-uglifier",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gajus/babel-plugin-react-css-modules"
+    "url": "https://github.com/practo/babel-plugin-react-css-uglifier"
   },
   "scripts": {
     "build": "rm -fr ./dist && NODE_ENV=production babel ./src --out-dir ./dist --source-maps --copy-files && npm run build-helper",
     "build-helper": "mkdir -p ./dist/browser && NODE_ENV=production babel ./src/getClassName.js --out-file ./dist/browser/getClassName.js --source-maps --no-babelrc --plugins transform-es2015-modules-commonjs,transform-flow-strip-types --presets es2015",
     "lint": "eslint ./src && flow",
     "precommit": "npm run test && npm run lint",
-    "test": " NODE_ENV=test mocha --require babel-core/register"
+    "test": " NODE_ENV=test mocha --require babel-core/register",
+    "prepublishOnly": "npm run build"
   },
-  "version": "1.0.0"
+  "version": "0.0.1"
 }
