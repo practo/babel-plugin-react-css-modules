@@ -4,7 +4,7 @@
     "start": "webpack-dev-server"
   },
   "dependencies": {
-    "babel-plugin-react-css-modules": "^2.1.3",
+    "babel-plugin-react-css-uglifier": "0.0.1",
     "classnames": "^2.2.6",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",

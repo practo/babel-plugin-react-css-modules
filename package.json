@@ -49,7 +49,7 @@
   "name": "babel-plugin-react-css-uglifier",
   "repository": {
     "type": "git",
-    "url": "https://github.com/practo/babel-plugin-react-css-modules"
+    "url": "https://github.com/practo/babel-plugin-react-css-uglifier"
   },
   "scripts": {
     "build": "rm -fr ./dist && NODE_ENV=production babel ./src --out-dir ./dist --source-maps --copy-files && npm run build-helper",
